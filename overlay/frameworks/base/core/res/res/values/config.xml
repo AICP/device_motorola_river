@@ -90,5 +90,7 @@
          sdk/src/java/org/lineageos/internal/util/DeviceKeysConstants.java.
     -->
     <integer name="config_longPressOnAppSwitchBehavior">1</integer>
+    <!-- Enable LiveDisplay -->
+    <bool name="config_liveDisplayAvailable">true</bool>
 
 </resources>

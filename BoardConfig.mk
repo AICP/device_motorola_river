@@ -39,5 +39,8 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 861507584     #   841316 * 1024 mmcblk0p60-6
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
+# Properties
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
 # inherit from the proprietary version
 include vendor/motorola/river/BoardConfigVendor.mk

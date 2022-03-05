@@ -1,6 +1,7 @@
 [
  {
    "repository": "AICP/device_motorola_sdm632-common",
-   "target_path": "device/motorola/sdm632-common"
+   "target_path": "device/motorola/sdm632-common",
+   "branch":     "r11.1"
  }
 ]

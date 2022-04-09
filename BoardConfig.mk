@@ -23,7 +23,10 @@ DEVICE_PATH := device/motorola/river
 TARGET_OTA_ASSERT_DEVICE := river
 
 # Display
-TARGET_SCREEN_DENSITY := 420
+TARGET_SCREEN_DENSITY := 480
+
+# HIDL
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Kernel
 TARGET_KERNEL_CONFIG := river_defconfig
@@ -40,7 +43,7 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 861507584     #   841316 * 1024 mmcblk0p60-6
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
 # Properties
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 
 # inherit from the proprietary version
 include vendor/motorola/river/BoardConfigVendor.mk

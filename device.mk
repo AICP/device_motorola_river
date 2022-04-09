@@ -18,7 +18,7 @@
 $(call inherit-product, vendor/motorola/river/river-vendor.mk)
 
 # Properties
--include $(LOCAL_PATH)/vendor_prop.mk
+-include $(LOCAL_PATH)/properties.mk
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -27,6 +27,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \
+    AvoidAppsInCutoutOverlay \
     NoCutoutOverlay
 
 # AAPT
@@ -35,13 +36,12 @@ PRODUCT_AAPT_PREF_CONFIG := 560dpi
 PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Audio
-PRODUCT_PACKAGES += \
-    libqcompostprocbundle
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     $(LOCAL_PATH)/audio/audio_ext_spkr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_ext_spkr.conf \
+    $(LOCAL_PATH)/audio/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     $(LOCAL_PATH)/audio/mixer_paths_madera_epout.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_madera_epout.xml \
     $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
 
@@ -64,6 +64,11 @@ PRODUCT_COPY_FILES += \
 # Init
 PRODUCT_PACKAGES += \
     init.river.rc
+
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service-sdm \
+    vendor.lineage.livedisplay@2.0-service-sysfs
 
 # NFC and Secure Element packages
 PRODUCT_COPY_FILES += \
